@@ -1,39 +1,24 @@
 # Simple User Management
 
----
-
 ## About
 
 Documentation outlining the various phases of implementing a simple platform to manage users.
 
-### Project Revisions
-
-> [!tip] Managing Revisions
-> Revisions to this project will be tagged with a callout when it occurs in the project lifecycle.
-
 ## Project Overview
-
----
 
 This application is a general purpose user management system that managers can use to keep track of users and their respective targets and issues.
 
 ## Target Users
 
----
-
 To be used by team managers, this application aims to provide objective feedback of user performance against defined goals, and timely assistance to issues.
 
 ## Schema
 
----
-
 The schema describes the relationship between the different entities in the application.
 
-![[Pasted image 20241207052610.png]]
+![Screenshot 2024-12-07 052607](https://github.com/user-attachments/assets/6d194dae-99d1-4849-84c8-71fb8aa02e42)
 
 ## Entities
-
----
 
 A list of entities and their relationships.
 
@@ -69,8 +54,6 @@ An Issue represents a challenge encountered by a User in executing their Role.
 
 ## Technology Stack
 
----
-
 An overview of the technologies used in this application.
 
 ### Frontend Library
@@ -100,15 +83,3 @@ This application uses Supabase, providing real-time databases, authentication an
 ### Build Tool and Deployment
 
 This application uses Vite for its build tool, and deployed in Vercel.
-
-## Wireframe
-
----
-
-Application design
-
-## Components
-
----
-
-Reusable components
