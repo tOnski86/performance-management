@@ -3,8 +3,10 @@ import {
   Navigate,
   RouterProvider,
 } from 'react-router-dom';
-import GlobalStyles from './styles/GlobalStyles';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
+import GlobalStyles from './styles/GlobalStyles';
 import AppLayout from './ui/AppLayout';
 import Team from './pages/Team';
 import Users from './pages/Users';
@@ -26,12 +28,21 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
+
 function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <GlobalStyles />
       <RouterProvider router={router} />
-    </>
+    </QueryClientProvider>
   );
 }
 
