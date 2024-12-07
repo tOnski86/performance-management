@@ -28,7 +28,8 @@ A table of entities and their relationships.
 
 The schema describes the relationship between the different entities in the application.
 
-![Screenshot 2024-12-07 052607](https://github.com/user-attachments/assets/6d194dae-99d1-4849-84c8-71fb8aa02e42)
+![image](https://github.com/user-attachments/assets/20a9b2d2-3639-455e-a0a1-c43ae4c96b2c)
+
 
 ## Technology Stack
 
