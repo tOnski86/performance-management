@@ -5,11 +5,11 @@ import {
 } from 'react-router-dom';
 import GlobalStyles from './styles/GlobalStyles';
 
+import AppLayout from './ui/AppLayout';
 import Team from './pages/Team';
 import Users from './pages/Users';
 import Targets from './pages/Targets';
 import Issues from './pages/Issues';
-import AppLayout from './ui/AppLayout';
 import PageNotFound from './pages/PageNotFound';
 
 const router = createBrowserRouter([
