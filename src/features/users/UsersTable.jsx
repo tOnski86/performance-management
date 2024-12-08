@@ -2,6 +2,7 @@ import { useGetUsers } from './useGetUsers';
 
 import Spinner from '../../ui/Spinner';
 import Table from '../../ui/Table';
+import UsersRow from './UsersRow';
 
 function UsersTable() {
   const { loadingUsers, users } = useGetUsers();
@@ -10,7 +11,7 @@ function UsersTable() {
   if (loadingUsers) return <Spinner />;
 
   return (
-    <Table columns='repeat(6, 1fr)'>
+    <Table columns='1.8fr 1.8fr .8fr 1fr 1fr .8fr .8fr'>
       <Table.Header>
         <div>Email Address</div>
         <div>Full Name</div>
@@ -18,9 +19,13 @@ function UsersTable() {
         <div>Start Date</div>
         <div>End Date</div>
         <div>Status</div>
+        <div>Actions</div>
       </Table.Header>
 
-      {/* <Table.Body data={users} /> */}
+      <Table.Body
+        data={users}
+        render={user => <UsersRow user={user} key={user.id} />}
+      />
     </Table>
   );
 }

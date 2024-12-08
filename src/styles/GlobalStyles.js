@@ -6,8 +6,8 @@ const GlobalStyles = createGlobalStyle`
   --color-black: #222222;
 
   --color-green-1: #1b444b;
-  --color-green-2: #418C99;
-  --color-green-3: #173f46;
+  --color-green-2: #173f46;
+  --color-green-3: #418C99;
   --color-magenta-1: #A14A76;
 
   --color-grey-light-1: #f9fafb;
@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
 
 ::selection {
   color: var(--color-white);
-  background: var(--color-green-2);
+  background: var(--color-green-3);
 }
 
 html {

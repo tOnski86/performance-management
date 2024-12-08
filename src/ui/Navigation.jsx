@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import {
-  HiOutlineHome,
+  HiOutlineHomeModern,
   HiOutlineRocketLaunch,
   HiOutlineShieldExclamation,
   HiOutlineUsers,
@@ -25,13 +25,13 @@ const StyledNavLink = styled(NavLink)`
   }
 
   &:hover {
-    background-color: var(--color-green-3);
+    background-color: var(--color-green-2);
   }
 
   &:active,
   &.active:link,
   &.active:visited {
-    background-color: var(--color-green-2);
+    background-color: var(--color-green-3);
   }
 `;
 
@@ -40,7 +40,7 @@ function Navigation() {
     <nav>
       <NavList>
         <StyledNavLink to='/team'>
-          <HiOutlineHome />
+          <HiOutlineHomeModern />
           <span>Team</span>
         </StyledNavLink>
 
