@@ -1,5 +1,7 @@
+import UsersTable from '../features/users/UsersTable';
+
 function Users() {
-  return <div>Users</div>;
+  return <UsersTable />;
 }
 
 export default Users;

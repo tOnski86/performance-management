@@ -8,6 +8,7 @@ const StyledSidebar = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  user-select: none;
   border-right: 0.1rem solid var(--color-grey-light-2);
   color: var(--color-white);
   background-color: var(--color-green-1);
