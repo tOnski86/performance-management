@@ -1,9 +1,13 @@
-import Table from '../../ui/Table';
 import { useGetUsers } from './useGetUsers';
+
+import Spinner from '../../ui/Spinner';
+import Table from '../../ui/Table';
 
 function UsersTable() {
   const { loadingUsers, users } = useGetUsers();
   console.log(users);
+
+  if (loadingUsers) return <Spinner />;
 
   return (
     <Table columns='repeat(6, 1fr)'>

@@ -51,7 +51,7 @@ function Navigation() {
 
         <StyledNavLink to='/targets'>
           <HiOutlineRocketLaunch />
-          <span>Target</span>
+          <span>Targets</span>
         </StyledNavLink>
 
         <StyledNavLink to='/issues'>
