@@ -3,7 +3,7 @@ import Heading from './Heading';
 
 const StyledHeader = styled.header`
   padding: 1.2rem 4.8rem;
-  border-bottom: 0.1rem solid var(--color-grey-light-1);
+  border-bottom: 0.1rem solid var(--color-grey-light-2);
 `;
 
 function Header() {

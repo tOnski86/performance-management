@@ -7,9 +7,11 @@ const GlobalStyles = createGlobalStyle`
 
   --color-green-1: #1b444b;
   --color-green-2: #418C99;
+  --color-green-3: #173f46;
   --color-magenta-1: #A14A76;
 
-  --color-grey-light-1: #f2f2f2;
+  --color-grey-light-1: #f9fafb;
+  --color-grey-light-2: #f2f2f2;
 }
 
 *,
@@ -36,6 +38,11 @@ body {
   line-height: 1.5;
   min-height: 100vh;
   color: var(--color-black);
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
 }
 `;
 
