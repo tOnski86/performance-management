@@ -1,30 +1,18 @@
-import styled, { css } from 'styled-components';
-import Table from '../../ui/Table';
+import {
+  HiOutlineChatBubbleLeft,
+  HiOutlineEye,
+  HiOutlinePencilSquare,
+} from 'react-icons/hi2';
+
 import { formatDate } from '../../utilitiles/helpers';
+import Table from '../../ui/Table';
 import Pill from '../../ui/Pill';
-
-const StyledSpan = styled.span`
-  ${props =>
-    props.status === 'active' &&
-    css`
-      background-color: var(--color-green-4);
-      color: var(--color-green-1);
-    `}
-
-  ${props =>
-    props.status === 'inactive' &&
-    css`
-      background-color: var(--color-magenta-1);
-      color: var(--color-white);
-    `}
-
-  padding: .8rem 1.2rem;
-  font-size: 1rem;
-  border-radius: 50rem;
-`;
+import Button from '../../ui/ButtonIcon';
+import ButtonGroup from '../../ui/ButtonGroup';
 
 function UsersRow({ user }) {
-  const { email, firstName, lastName, roleId, startDate, endDate } = user;
+  const { photoUrl, email, firstName, lastName, roleId, startDate, endDate } =
+    user;
   return (
     <Table.Row>
       <div>{email}</div>
@@ -49,9 +37,17 @@ function UsersRow({ user }) {
           </Pill>
         )}
       </div>
-      <div>
-        <button>Edit</button>
-      </div>
+      <ButtonGroup>
+        <Button>
+          <HiOutlineEye />
+        </Button>
+        <Button>
+          <HiOutlinePencilSquare />
+        </Button>
+        <Button>
+          <HiOutlineChatBubbleLeft />
+        </Button>
+      </ButtonGroup>
     </Table.Row>
   );
 }
