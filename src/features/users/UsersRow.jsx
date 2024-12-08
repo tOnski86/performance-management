@@ -5,14 +5,14 @@ function UsersRow({ user }) {
   const { email, firstName, lastName, roleId, startDate, endDate } = user;
   return (
     <Table.Row>
-      <div>{email}</div>
-      <div>
+      <td>{email}</td>
+      <td>
         {firstName} {lastName}
-      </div>
-      <div>{roleId}</div>
-      <div>{formatDate(startDate)}</div>
-      <div>{!endDate ? '—' : endDate}</div>
-      <div>{!endDate ? 'Active' : endDate}</div>
+      </td>
+      <td>{roleId}</td>
+      <td>{formatDate(startDate)}</td>
+      <td>{!endDate ? '—' : endDate}</td>
+      <td>{!endDate ? 'Active' : endDate}</td>
     </Table.Row>
   );
 }

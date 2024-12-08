@@ -11,15 +11,16 @@ function UsersTable() {
   if (loadingUsers) return <Spinner />;
 
   return (
-    <Table columns='1.8fr 1.8fr .8fr 1fr 1fr .8fr .8fr'>
+    // <Table columns='1.8fr 1.8fr .8fr 1fr 1fr .8fr .8fr'>
+    <Table>
       <Table.Header>
-        <div>Email Address</div>
-        <div>Full Name</div>
-        <div>Role</div>
-        <div>Start Date</div>
-        <div>End Date</div>
-        <div>Status</div>
-        <div>Actions</div>
+        <th>Email Address</th>
+        <th>Full Name</th>
+        <th>Role</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+        <th>Actions</th>
       </Table.Header>
 
       <Table.Body
