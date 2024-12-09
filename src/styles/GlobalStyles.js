@@ -8,9 +8,10 @@ const GlobalStyles = createGlobalStyle`
   --color-green-1: #1b444b;
   --color-green-2: #173f46;
   --color-green-3: #418C99;
-  --color-green-4: #ddeff2;
+  --color-green-4: #55a8b7;
+  --color-green-5: #ddeff2;
   --color-magenta-1: #A14A76;
-  --color-magenta-2: #f5cce0;
+  --color-magenta-2: #f4d7e5;
 
   --color-grey-light-1: #f9fafb;
   --color-grey-light-2: #f2f2f2;
@@ -37,7 +38,7 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 1.5;
   min-height: 100vh;
   color: var(--color-black);

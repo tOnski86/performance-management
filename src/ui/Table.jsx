@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 const StyledTable = styled.div`
   font-size: 1.2rem;
+  border: 0.1rem solid var(--color-grey-light-2);
+  border-radius: 0.1rem;
 `;
 
 const BaseRow = styled.div`

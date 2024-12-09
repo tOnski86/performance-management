@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const ButtonIcon = styled.button`
   border: none;
   background: none;
   color: var(--color-green-1);
@@ -17,4 +17,4 @@ const Button = styled.button`
   }
 `;
 
-export default Button;
+export default ButtonIcon;

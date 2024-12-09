@@ -7,7 +7,7 @@ import {
 import { formatDate } from '../../utilitiles/helpers';
 import Table from '../../ui/Table';
 import Pill from '../../ui/Pill';
-import Button from '../../ui/ButtonIcon';
+import ButtonIcon from '../../ui/ButtonIcon';
 import ButtonGroup from '../../ui/ButtonGroup';
 
 function UsersRow({ user }) {
@@ -23,7 +23,7 @@ function UsersRow({ user }) {
       <div>
         {!endDate ? (
           <Pill
-            backgroundColor='var(--color-green-4)'
+            backgroundColor='var(--color-green-5)'
             color='var(--color-black)'
           >
             Active
@@ -38,15 +38,15 @@ function UsersRow({ user }) {
         )}
       </div>
       <ButtonGroup>
-        <Button>
+        <ButtonIcon>
           <HiOutlineEye />
-        </Button>
-        <Button>
+        </ButtonIcon>
+        <ButtonIcon>
           <HiOutlinePencilSquare />
-        </Button>
-        <Button>
+        </ButtonIcon>
+        <ButtonIcon>
           <HiOutlineChatBubbleLeft />
-        </Button>
+        </ButtonIcon>
       </ButtonGroup>
     </Table.Row>
   );

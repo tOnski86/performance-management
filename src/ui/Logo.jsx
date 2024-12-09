@@ -23,7 +23,7 @@ function Logo() {
   return (
     <StyledLogo>
       <StyledHiOutlineSquare3Stack3D />
-      <span>User Management</span>
+      <span>Growth Dojo</span>
     </StyledLogo>
   );
 }

@@ -2,14 +2,15 @@ import styled from 'styled-components';
 import Heading from './Heading';
 
 const StyledHeader = styled.header`
-  padding: 1.2rem 4.8rem;
+  padding: 2rem 4.8rem;
+  margin-bottom: 1rem;
   border-bottom: 0.1rem solid var(--color-grey-light-2);
 `;
 
 function Header() {
   return (
     <StyledHeader>
-      <Heading as='h1'>User Management</Heading>
+      <Heading as='h1'>Performance Management System</Heading>
     </StyledHeader>
   );
 }
