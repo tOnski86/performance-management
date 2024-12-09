@@ -13,6 +13,8 @@ const StyledAppLayout = styled.div`
 
 const Main = styled.main`
   padding: 1.2rem 4.8rem;
+  overflow: scroll;
+  scrollbar-width: thin;
 `;
 
 function AppLayout() {

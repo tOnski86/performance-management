@@ -12,13 +12,24 @@ const Button = styled.button`
   transition: color 0.2s;
 
   ${props =>
-    props.type &&
+    props.type === 'primary' &&
     css`
       background-color: var(--color-green-4);
       color: var(--color-white);
 
       &:hover {
         background-color: var(--color-green-3);
+      }
+    `}
+
+  ${props =>
+    props.type === 'secondary' &&
+    css`
+      background-color: var(--color-magenta-2);
+      color: var(--color-white);
+
+      &:hover {
+        background-color: var(--color-magenta-1);
       }
     `}
 

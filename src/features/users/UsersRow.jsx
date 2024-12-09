@@ -40,7 +40,7 @@ function UsersRow({ user }) {
           </Pill>
         ) : (
           <Pill
-            backgroundcolor='var(--color-magenta-2)'
+            backgroundcolor='var(--color-magenta-3)'
             color='var(--color-black)'
           >
             Inactive

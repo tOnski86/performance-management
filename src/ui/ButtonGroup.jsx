@@ -4,8 +4,8 @@ const ButtonGroup = styled.div`
   display: flex;
   align-items: center;
 
-  & :not(:last-child) {
-    padding-right: 0.8rem;
+  & > :not(:last-child) {
+    margin-right: 0.8rem;
   }
 `;
 

@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 const StyledInputRow = styled.div`
   display: grid;
-  gap: 0.6rem;
+  gap: 0.4rem;
 `;
 
-const Label = styled.label``;
+const Label = styled.label`
+  font-size: 1.2rem;
+`;
 
 const Error = styled.span``;
 
