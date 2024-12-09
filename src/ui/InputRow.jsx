@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import InputError from './InputError';
 
 const StyledInputRow = styled.div`
   display: grid;
@@ -6,18 +7,18 @@ const StyledInputRow = styled.div`
 `;
 
 const Label = styled.label`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 `;
 
-const Error = styled.span``;
-
-function InputRow({ label, error, children }) {
+function InputRow({ label, children, error }) {
   return (
-    <StyledInputRow>
-      {label && <Label htmlFor={children.props.id}>{label}</Label>}
-      {children}
-      {error && <Error />}
-    </StyledInputRow>
+    <div>
+      <StyledInputRow>
+        {label && <Label htmlFor={children.props.id}>{label}</Label>}
+        {children}
+      </StyledInputRow>
+      {error && <InputError error={error} />}
+    </div>
   );
 }
 
