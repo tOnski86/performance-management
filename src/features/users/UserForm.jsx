@@ -10,11 +10,12 @@ import ButtonGroup from '../../ui/ButtonGroup';
 import InputFile from '../../ui/InputFile';
 
 function UserForm() {
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState, reset } = useForm();
   const { errors } = formState;
 
   function onSubmit(data) {
     console.log(data);
+    reset();
   }
 
   return (
@@ -47,7 +48,7 @@ function UserForm() {
 
       <InputRow label='Email Address' error={errors?.emailAddress?.message}>
         <Input
-          type='text'
+          type='email'
           id='emailAddress'
           {...register('emailAddress', { required: 'This field is required' })}
         />
