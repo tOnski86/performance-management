@@ -1,4 +1,4 @@
-# Simple User Management
+# Performance Management System
 
 ## About
 
@@ -30,18 +30,17 @@ The schema describes the relationship between the different entities in the appl
 
 ![image](https://github.com/user-attachments/assets/20a9b2d2-3639-455e-a0a1-c43ae4c96b2c)
 
-
 ## Technology Stack
 
 An overview of the technologies used in this application.
 
-| Requirements        | Technology           | Description                                                         |
-| ------------------- | -------------------- | ------------------------------------------------------------------- |
-| Frontend Library    | React                | A JavaScript library for building user interfaces.                  |
-| Local UI State      | useState, useContext | Built-in React state and context subscription hooks.                |
-| Remote Server State | React Query          | Managing, caching and syncing asynchronous and remote data.         |
-| Routing             | React Router         | Managing URL routes and data for Single-Page Applications.          |
-| Forms               | React Hook Form      | Managing form validation.                                           |
-| Styling             | Styled Components    | CSS-in-JS library for component-level styles.                       |
-| Database            | Supabase             | Real-time database, authentication and access to a RESTful API.     |
-| Build and Deployment    | Vite, Vercel         | This application uses Vite for its build tool,  deployed in Vercel. |
+| Requirements         | Technology           | Description                                                        |
+| -------------------- | -------------------- | ------------------------------------------------------------------ |
+| Frontend Library     | React                | A JavaScript library for building user interfaces.                 |
+| Local UI State       | useState, useContext | Built-in React state and context subscription hooks.               |
+| Remote Server State  | React Query          | Managing, caching and syncing asynchronous and remote data.        |
+| Routing              | React Router         | Managing URL routes and data for Single-Page Applications.         |
+| Forms                | React Hook Form      | Managing form validation.                                          |
+| Styling              | Styled Components    | CSS-in-JS library for component-level styles.                      |
+| Database             | Supabase             | Real-time database, authentication and access to a RESTful API.    |
+| Build and Deployment | Vite, Vercel         | This application uses Vite for its build tool, deployed in Vercel. |

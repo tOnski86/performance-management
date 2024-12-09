@@ -8,9 +8,9 @@ const StyledPill = styled.span`
   color: ${props => props.color};
 `;
 
-function Pill({ backgroundColor, color, children }) {
+function Pill({ backgroundcolor, color, children }) {
   return (
-    <StyledPill backgroundColor={backgroundColor} color={color}>
+    <StyledPill $backgroundcolor={backgroundcolor} color={color}>
       {children}
     </StyledPill>
   );

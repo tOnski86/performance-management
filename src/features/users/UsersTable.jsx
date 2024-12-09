@@ -6,7 +6,6 @@ import UsersRow from './UsersRow';
 
 function UsersTable() {
   const { loadingUsers, users } = useGetUsers();
-  console.log(users);
 
   if (loadingUsers) return <Spinner />;
 

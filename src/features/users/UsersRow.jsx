@@ -13,6 +13,7 @@ import ButtonGroup from '../../ui/ButtonGroup';
 function UsersRow({ user }) {
   const { photoUrl, email, firstName, lastName, roleId, startDate, endDate } =
     user;
+
   return (
     <Table.Row>
       <div>{email}</div>
@@ -23,14 +24,14 @@ function UsersRow({ user }) {
       <div>
         {!endDate ? (
           <Pill
-            backgroundColor='var(--color-green-5)'
+            backgroundcolor='var(--color-green-5)'
             color='var(--color-black)'
           >
             Active
           </Pill>
         ) : (
           <Pill
-            backgroundColor='var(--color-magenta-2)'
+            backgroundcolor='var(--color-magenta-2)'
             color='var(--color-black)'
           >
             Inactive
