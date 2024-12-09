@@ -1,21 +1,24 @@
 import Form from '../../ui/Form';
-import FormRow from '../../ui/FormRow';
+import InputRow from '../../ui/InputRow';
 import Input from '../../ui/Input';
+import InputGroup from '../../ui/InputGroup';
 
 function UserForm() {
   return (
     <Form>
-      <FormRow label='First Name'>
-        <Input type='text' />
-      </FormRow>
+      <InputGroup columns='2'>
+        <InputRow label='First Name'>
+          <Input type='text' />
+        </InputRow>
 
-      <FormRow label='Last Name'>
-        <Input type='text' />
-      </FormRow>
+        <InputRow label='Last Name'>
+          <Input type='text' />
+        </InputRow>
+      </InputGroup>
 
-      <FormRow label='Email Address'>
+      <InputRow label='Email Address'>
         <Input type='text' />
-      </FormRow>
+      </InputRow>
     </Form>
   );
 }

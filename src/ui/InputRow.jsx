@@ -1,19 +1,22 @@
 import styled from 'styled-components';
 
-const StyledFormRow = styled.div``;
+const StyledInputRow = styled.div`
+  display: grid;
+  gap: 0.6rem;
+`;
 
 const Label = styled.label``;
 
 const Error = styled.span``;
 
-function FormRow({ label, error, children }) {
+function InputRow({ label, error, children }) {
   return (
-    <StyledFormRow>
+    <StyledInputRow>
       {label && <Label htmlFor={children.props.id}>{label}</Label>}
       {children}
       {error && <Error />}
-    </StyledFormRow>
+    </StyledInputRow>
   );
 }
 
-export default FormRow;
+export default InputRow;
