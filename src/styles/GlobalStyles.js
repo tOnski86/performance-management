@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
 
 ::selection {
   color: var(--color-white);
-  background: var(--color-green-3);
+  background: var(--color-green-4);
 }
 
 html {

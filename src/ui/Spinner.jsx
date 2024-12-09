@@ -10,7 +10,7 @@ const Spinner = styled.div`
   width: 4.8rem;
   height: 4.8rem;
   border: 0.5rem solid var(--color-grey-light-3);
-  border-bottom-color: var(--color-green-2);
+  border-bottom-color: var(--color-green-4);
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
