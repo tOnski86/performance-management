@@ -9,16 +9,25 @@ import Table from '../../ui/Table';
 import Pill from '../../ui/Pill';
 import ButtonIcon from '../../ui/ButtonIcon';
 import ButtonGroup from '../../ui/ButtonGroup';
+import Image from '../../ui/Image';
 
 function UsersRow({ user }) {
-  const { photoUrl, email, firstName, lastName, roleId, startDate, endDate } =
-    user;
+  const {
+    photoUrl,
+    email,
+    firstName,
+    lastName,
+    startDate,
+    endDate,
+    roles: { title },
+  } = user;
 
   return (
     <Table.Row>
+      <Image src={photoUrl} alt={`Photo of ${firstName} ${lastName}`} />
       <div>{email}</div>
       <div>{`${firstName} ${lastName}`}</div>
-      <div>{roleId}</div>
+      <div>{title}</div>
       <div>{formatDate(startDate)}</div>
       <div>{!endDate ? '—' : formatDate(endDate)}</div>
       <div>

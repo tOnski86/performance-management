@@ -10,7 +10,7 @@ const StyledHeader = styled.header`
 function Header() {
   return (
     <StyledHeader>
-      <Heading as='h1'>Performance Management System</Heading>
+      <Heading as='h1'>Performance Management</Heading>
     </StyledHeader>
   );
 }

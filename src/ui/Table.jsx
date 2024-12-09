@@ -11,7 +11,12 @@ const BaseRow = styled.div`
   display: grid;
   grid-template-columns: ${props => props.$columns};
   column-gap: 2rem;
-  white-space: nowrap;
+
+  & > * {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 `;
 
 const StyledHeader = styled(BaseRow)`
@@ -21,8 +26,14 @@ const StyledHeader = styled(BaseRow)`
   background-color: var(--color-green-3);
 `;
 
+const StyledSection = styled.section`
+  & > * {
+    align-items: center;
+  }
+`;
+
 const StyledRow = styled(BaseRow)`
-  padding: 1.6rem 2.4rem;
+  padding: 1.2rem 2.4rem;
 
   &:not(:last-child) {
     border-bottom: 0.1rem solid var(--color-grey-light-2);
@@ -50,7 +61,7 @@ function Header({ children }) {
 }
 
 function Body({ data, render }) {
-  return <section>{data.map(render)}</section>;
+  return <StyledSection>{data.map(render)}</StyledSection>;
 }
 
 function Row({ children }) {
