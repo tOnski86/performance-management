@@ -2,7 +2,9 @@ import {
   HiOutlineChatBubbleLeft,
   HiOutlineEye,
   HiOutlinePencilSquare,
+  HiOutlineTrash,
 } from 'react-icons/hi2';
+import { useDeleteUser } from './useDeleteUser';
 
 import { formatDate } from '../../utilitiles/helpers';
 import Table from '../../ui/Table';
@@ -12,24 +14,23 @@ import ButtonGroup from '../../ui/ButtonGroup';
 import Image from '../../ui/Image';
 
 function UsersRow({ user }) {
+  const { isDeletingUser, deleteUser } = useDeleteUser();
+
   const {
+    id,
     photoUrl,
     emailAddress,
     firstName,
     lastName,
     startDate,
     endDate,
-    // roles: { title },
   } = user;
-
-  console.log(user);
 
   return (
     <Table.Row>
       <Image src={photoUrl} alt={`Photo of ${firstName} ${lastName}`} />
       <div>{emailAddress}</div>
       <div>{`${firstName} ${lastName}`}</div>
-      {/* <div>{title}</div> */}
       <div>{formatDate(startDate)}</div>
       <div>{!endDate ? '—' : formatDate(endDate)}</div>
       <div>
@@ -54,10 +55,13 @@ function UsersRow({ user }) {
           <HiOutlineEye />
         </ButtonIcon>
         <ButtonIcon>
-          <HiOutlinePencilSquare />
+          <HiOutlineChatBubbleLeft />
         </ButtonIcon>
         <ButtonIcon>
-          <HiOutlineChatBubbleLeft />
+          <HiOutlinePencilSquare />
+        </ButtonIcon>
+        <ButtonIcon onClick={() => deleteUser(id)} disabled={isDeletingUser}>
+          <HiOutlineTrash />
         </ButtonIcon>
       </ButtonGroup>
     </Table.Row>

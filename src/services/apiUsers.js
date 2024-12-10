@@ -1,7 +1,7 @@
 import supabase, { supabaseUrl } from './supabase';
 import { v4 as uuidv4 } from 'uuid';
 
-// select
+// select users
 export async function readUsers() {
   const { data: users, error } = await supabase
     .from('users')
@@ -12,7 +12,18 @@ export async function readUsers() {
   return users;
 }
 
-// insert
+// delete user
+export async function deleteUser(id) {
+  console.log(id);
+  const { error: deleteError } = await supabase
+    .from('users')
+    .delete()
+    .eq('id', id);
+
+  if (deleteError) throw new Error('User cannot be deleted');
+}
+
+// insert user
 export async function insertUser(newUser) {
   const { photoUrl, ...userData } = newUser;
   const photoUpload = await uploadPhoto(photoUrl);
@@ -28,7 +39,7 @@ export async function insertUser(newUser) {
 
   return data;
 }
-// image upload
+// upload to storage
 async function uploadPhoto(photo) {
   const fileName = `${uuidv4()}-${photo.name}`.replaceAll('/', '');
 
@@ -45,3 +56,5 @@ async function uploadPhoto(photo) {
 
   return photoUrl;
 }
+
+// delete from storage

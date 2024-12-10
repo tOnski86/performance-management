@@ -10,12 +10,11 @@ function UsersTable() {
   if (isReadingUsers) return <Spinner />;
 
   return (
-    <Table columns='minmax(4rem, 0.2fr) minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1.2fr) repeat(4, minmax(8rem, 0.4fr))'>
+    <Table columns='minmax(4rem, 0.2fr) repeat(2, minmax(10rem, 1fr)) repeat(4, minmax(4rem, 0.4fr))'>
       <Table.Header>
         <div></div>
         <div>Email Address</div>
         <div>Full Name</div>
-        <div>Role</div>
         <div>Start Date</div>
         <div>End Date</div>
         <div>Status</div>
