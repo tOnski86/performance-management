@@ -1,5 +1,6 @@
 import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { insertUser as insertUserApi } from '../../services/apiUsers';
+import toast from 'react-hot-toast';
 
 export function useInsertUser() {
   const queryClient = useQueryClient();
@@ -8,10 +9,10 @@ export function useInsertUser() {
     mutationFn: insertUserApi,
     onSuccess: () => {
       queryClient.invalidateQueries(['users']);
-      console.log('Success');
+      toast.success('User successfully added');
     },
     onError: error => {
-      console.log(error.message);
+      toast.error(error.message);
     },
   });
 
