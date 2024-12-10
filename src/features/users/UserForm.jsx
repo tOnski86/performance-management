@@ -1,3 +1,4 @@
+import { useInsertUser } from './useInsertUser';
 import { useForm } from 'react-hook-form';
 import { HiOutlinePlusCircle, HiOutlineXCircle } from 'react-icons/hi2';
 
@@ -8,23 +9,28 @@ import InputGroup from '../../ui/InputGroup';
 import Button from '../../ui/Button';
 import ButtonGroup from '../../ui/ButtonGroup';
 import InputFile from '../../ui/InputFile';
+import Spinner from '../../ui/Spinner';
 
 function UserForm() {
+  const { isInsertingUser, insertUser } = useInsertUser();
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors } = formState;
 
+  if (isInsertingUser) return <Spinner />;
+
   function onSubmit(data) {
-    console.log(data);
+    insertUser({ ...data, photoUrl: data.photoUrl[0] });
+    // console.log(data);
     reset();
   }
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <InputRow label='Upload Photo' error={errors?.photo?.message}>
+      <InputRow label='Upload Photo' error={errors?.photoUrl?.message}>
         <InputFile
-          type='file'
-          id='photo'
-          {...register('photo', { required: 'This file is required' })}
+          id='photoUrl'
+          accept='image/*'
+          {...register('photoUrl', { required: 'This file is required' })}
         />
       </InputRow>
 
@@ -54,13 +60,13 @@ function UserForm() {
         />
       </InputRow>
 
-      <InputRow label='Role' error={errors?.role?.message}>
+      {/* <InputRow label='Role' error={errors?.role?.message}>
         <Input
           type='text'
           id='role'
           {...register('role', { required: 'This field is required' })}
         />
-      </InputRow>
+      </InputRow> */}
 
       <InputGroup columns='2'>
         <InputRow label='Start Date' error={errors?.startDate?.message}>
@@ -69,12 +75,19 @@ function UserForm() {
             id='startDate'
             {...register('startDate', {
               required: 'This field is required',
+              valueAsDate: true,
             })}
           />
         </InputRow>
 
         <InputRow label='End Date'>
-          <Input type='date' id='endDate' {...register('endDate')} />
+          <Input
+            type='date'
+            id='endDate'
+            {...register('endDate', {
+              valueAsDate: true,
+            })}
+          />
         </InputRow>
       </InputGroup>
 

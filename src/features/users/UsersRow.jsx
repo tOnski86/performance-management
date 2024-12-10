@@ -14,20 +14,22 @@ import Image from '../../ui/Image';
 function UsersRow({ user }) {
   const {
     photoUrl,
-    email,
+    emailAddress,
     firstName,
     lastName,
     startDate,
     endDate,
-    roles: { title },
+    // roles: { title },
   } = user;
+
+  console.log(user);
 
   return (
     <Table.Row>
       <Image src={photoUrl} alt={`Photo of ${firstName} ${lastName}`} />
-      <div>{email}</div>
+      <div>{emailAddress}</div>
       <div>{`${firstName} ${lastName}`}</div>
-      <div>{title}</div>
+      {/* <div>{title}</div> */}
       <div>{formatDate(startDate)}</div>
       <div>{!endDate ? '—' : formatDate(endDate)}</div>
       <div>

@@ -1,13 +1,13 @@
-import { useGetUsers } from './useGetUsers';
+import { useGetUsers } from './useReadUsers';
 
 import Spinner from '../../ui/Spinner';
 import Table from '../../ui/Table';
 import UsersRow from './UsersRow';
 
 function UsersTable() {
-  const { loadingUsers, users } = useGetUsers();
+  const { isReadingUsers, users } = useGetUsers();
 
-  if (loadingUsers) return <Spinner />;
+  if (isReadingUsers) return <Spinner />;
 
   return (
     <Table columns='minmax(4rem, 0.2fr) minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1.2fr) repeat(4, minmax(8rem, 0.4fr))'>

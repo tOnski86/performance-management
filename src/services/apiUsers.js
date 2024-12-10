@@ -1,4 +1,5 @@
 import supabase, { supabaseUrl } from './supabase';
+import { v4 as uuidv4 } from 'uuid';
 
 // select
 export async function readUsers() {
@@ -13,21 +14,34 @@ export async function readUsers() {
 
 // insert
 export async function insertUser(newUser) {
-  const { image, ...userData } = newUser;
+  const { photoUrl, ...userData } = newUser;
+  const photoUpload = await uploadPhoto(photoUrl);
 
-  let imageUrl;
-  image?.startsWith?.(supabaseUrl)
-    ? (imageUrl = image)
-    : (imageUrl = await uploadImage(image));
-
-  const { data: user, error } = await supabase
+  const { data, error: insertError } = await supabase
     .from('users')
-    .insert([{ some_column: 'someValue', other_column: 'otherValue' }])
+    .insert([{ ...userData, photoUrl: photoUpload }])
     .select();
 
-  if (error) throw new Error('User cannot be added');
+  console.log(insertError);
 
-  return user;
+  if (insertError) throw new Error('User cannot be added');
+
+  return data;
 }
 // image upload
-const 
+async function uploadPhoto(photo) {
+  const fileName = `${uuidv4()}-${photo.name}`.replaceAll('/', '');
+
+  const photoUrl = `${supabaseUrl}/storage/v1/object/public/user-photos/${fileName}`;
+
+  const { error: uploadError } = await supabase.storage
+    .from('user-photos')
+    .upload(fileName, photo, {
+      cacheControl: '3600',
+      upsert: false,
+    });
+
+  if (uploadError) throw new Error('Image cannot be uploaded');
+
+  return photoUrl;
+}
