@@ -14,7 +14,7 @@ export async function readUsers() {
 
 // delete user
 export async function deleteUser(id) {
-  console.log(id);
+  // also delete image
   const { error: deleteError } = await supabase
     .from('users')
     .delete()
