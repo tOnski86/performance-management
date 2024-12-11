@@ -7,6 +7,7 @@ const rotate = keyframes`
 `;
 
 const Spinner = styled.div`
+  margin: 6rem auto;
   width: 4.8rem;
   height: 4.8rem;
   border: 0.5rem solid var(--color-grey-light-3);

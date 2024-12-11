@@ -41,12 +41,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <GlobalStyles />
       <RouterProvider router={router} />
       <Toaster
         position='top-center'
-        gutter={12}
-        containerStyle={{ margin: '.8rem' }}
+        gutter={8}
+        containerStyle={{}}
         toastOptions={{
           style: {
             fontSize: '1.4rem',
@@ -54,6 +53,8 @@ function App() {
             padding: '1.6rem 2.4rem',
             backgroundColor: 'var(--color-grey-1)',
             color: 'var(--color-green-1)',
+            borderRadius: '50rem',
+            boxShadow: '0 .1rem 3rem rgba(0, 0, 0, 0.1)',
           },
           success: {
             duration: 3000,
@@ -63,6 +64,7 @@ function App() {
           },
         }}
       />
+      <GlobalStyles />
     </QueryClientProvider>
   );
 }

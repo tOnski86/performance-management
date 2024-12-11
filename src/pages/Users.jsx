@@ -21,6 +21,7 @@ function Users() {
           <p>filter / sort</p>
         </Row>
       </Row>
+
       <Row>
         <UsersTable />
         {isOpen && <UserForm />}

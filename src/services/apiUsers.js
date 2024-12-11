@@ -3,9 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // select users
 export async function readUsers() {
-  const { data: users, error } = await supabase
-    .from('users')
-    .select('*, roles(title)');
+  const { data: users, error } = await supabase.from('users').select('*');
 
   if (error) throw new Error('Users cannot be loaded');
 
@@ -14,11 +12,16 @@ export async function readUsers() {
 
 // delete user
 export async function deleteUser(id) {
-  // also delete image
-  const { error: deleteError } = await supabase
+  const { error: photoDeleteError } = await deletePhoto(id);
+
+  if (photoDeleteError) throw new Error('Cannot delete photo');
+
+  const { data, error: deleteError } = await supabase
     .from('users')
     .delete()
     .eq('id', id);
+
+  if (data) console.log(data);
 
   if (deleteError) throw new Error('User cannot be deleted');
 }
@@ -32,8 +35,6 @@ export async function insertUser(newUser) {
     .from('users')
     .insert([{ ...userData, photoUrl: photoUpload }])
     .select();
-
-  console.log(insertError);
 
   if (insertError) throw new Error('User cannot be added');
 
@@ -52,9 +53,27 @@ async function uploadPhoto(photo) {
       upsert: false,
     });
 
-  if (uploadError) throw new Error('Image cannot be uploaded');
+  if (uploadError) throw new Error('Photo cannot be uploaded');
 
   return photoUrl;
 }
 
 // delete from storage
+async function deletePhoto(id) {
+  const { data: photoUrl, photoError } = await supabase
+    .from('users')
+    .select('photoUrl')
+    .eq('id', id);
+
+  if (photoError) throw new Error('PhotoUrl not found');
+
+  const photo = photoUrl[0].photoUrl.split('/').slice(-1);
+
+  const { data, error: photoDeleteError } = await supabase.storage
+    .from('user-photos')
+    .remove(photo);
+
+  if (photoDeleteError) throw new Error('Photo cannot be deleted');
+
+  return data;
+}
