@@ -4,21 +4,19 @@ import {
   HiOutlinePencilSquare,
   HiOutlineTrash,
 } from 'react-icons/hi2';
-import { useDeleteUser } from './useDeleteUser';
 
 import { formatDate } from '../../utilitiles/helpers';
+import { useDeleteUser } from './useDeleteUser';
 import Table from '../../ui/Table';
 import Pill from '../../ui/Pill';
 import ButtonIcon from '../../ui/ButtonIcon';
 import ButtonGroup from '../../ui/ButtonGroup';
 import Image from '../../ui/Image';
-import { useState } from 'react';
 import UserForm from './UserForm';
+import Modal from '../../ui/Modal';
 
 function UsersRow({ user }) {
   const { isDeletingUser, deleteUser } = useDeleteUser();
-
-  const [isOpen, setIsOpen] = useState(false);
 
   const {
     id,
@@ -49,19 +47,27 @@ function UsersRow({ user }) {
           <ButtonIcon>
             <HiOutlineEye />
           </ButtonIcon>
+
           <ButtonIcon>
             <HiOutlineChatBubbleLeft />
           </ButtonIcon>
-          <ButtonIcon onClick={() => setIsOpen(isOpen => !isOpen)}>
-            <HiOutlinePencilSquare />
-          </ButtonIcon>
+
+          <Modal>
+            <Modal.Control controlName='edit-user'>
+              <ButtonIcon>
+                <HiOutlinePencilSquare />
+              </ButtonIcon>
+            </Modal.Control>
+            <Modal.Window windowName='edit-user'>
+              <UserForm editUser={user} />
+            </Modal.Window>
+          </Modal>
+
           <ButtonIcon onClick={() => deleteUser(id)} disabled={isDeletingUser}>
             <HiOutlineTrash />
           </ButtonIcon>
         </ButtonGroup>
       </Table.Row>
-
-      {isOpen && <UserForm editUser={user} />}
     </>
   );
 }

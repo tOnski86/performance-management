@@ -43,7 +43,15 @@ function UserForm({ editUser = {}, onCloseModal }) {
       typeof data.photoUrl === 'string' ? data.photoUrl : data.photoUrl[0];
 
     isUpdating
-      ? updateUser({ ...data, photoUrl: photo, id: updateId })
+      ? updateUser(
+          { ...data, photoUrl: photo, id: updateId },
+          {
+            onSuccess: () => {
+              reset();
+              onCloseModal();
+            },
+          }
+        )
       : insertUser(
           { ...data, photoUrl: photo },
           {
