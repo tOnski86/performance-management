@@ -40,6 +40,9 @@ export async function insertUser(newUser) {
 
   return data;
 }
+
+// update user
+
 // upload to storage
 async function uploadPhoto(photo) {
   const fileName = `${uuidv4()}-${photo.name}`.replaceAll('/', '');

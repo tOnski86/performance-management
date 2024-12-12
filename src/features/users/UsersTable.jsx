@@ -2,7 +2,7 @@ import { useGetUsers } from './useReadUsers';
 
 import Spinner from '../../ui/Spinner';
 import Table from '../../ui/Table';
-import UsersRow from './UsersRow';
+import UsersRow from './UserRow';
 
 function UsersTable() {
   const { isReadingUsers, users } = useGetUsers();
