@@ -54,7 +54,7 @@ function App() {
             backgroundColor: 'var(--color-grey-1)',
             color: 'var(--color-green-1)',
             borderRadius: '50rem',
-            boxShadow: '0 .1rem 3rem rgba(0, 0, 0, 0.1)',
+            boxShadow: 'var(--box-shadow-sm)',
           },
           success: {
             duration: 3000,

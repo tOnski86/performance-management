@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 import styled from 'styled-components';
 
 const StyledTable = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   border: 0.1rem solid var(--color-grey-light-2);
   border-radius: 0.1rem;
 `;

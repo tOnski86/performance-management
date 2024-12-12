@@ -1,10 +1,12 @@
 import { HiOutlineUserPlus } from 'react-icons/hi2';
+import { useState } from 'react';
+
 import UsersTable from '../features/users/UsersTable';
-import Button from '../ui/Button';
+import UserForm from '../features/users/UserForm';
+import UserModal from '../features/users/UserModal';
+
 import Heading from '../ui/Heading';
 import Row from '../ui/Row';
-import { useState } from 'react';
-import UserForm from '../features/users/UserForm';
 
 function Users() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +16,7 @@ function Users() {
       <Row type='horizontal'>
         <Heading as='h2'>Manage Users</Heading>
         <Row type='horizontal'>
-          <Button type='primary' onClick={() => setIsOpen(isOpen => !isOpen)}>
-            <HiOutlineUserPlus />
-            <span>Add User</span>
-          </Button>
+          <UserModal />
           <p>filter / sort</p>
         </Row>
       </Row>
