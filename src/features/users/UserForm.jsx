@@ -12,7 +12,7 @@ import ButtonGroup from '../../ui/ButtonGroup';
 import InputFile from '../../ui/InputFile';
 import Spinner from '../../ui/Spinner';
 
-function UserForm({ editUser = {} }) {
+function UserForm({ editUser = {}, onCloseModal }) {
   // useMutation isPending and mutate functions
   const { isInsertingUser, insertUser } = useInsertUser();
   const { isUpdatingUser, updateUser } = useUpdateUser();
@@ -100,7 +100,7 @@ function UserForm({ editUser = {} }) {
       </InputGroup>
 
       <ButtonGroup>
-        <Button type='secondary'>
+        <Button type='secondary' onClick={() => onCloseModal()}>
           <HiOutlineXCircle />
           <span>Cancel</span>
         </Button>
