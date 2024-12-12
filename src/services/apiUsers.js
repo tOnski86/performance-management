@@ -26,7 +26,7 @@ export async function deleteUser(id) {
   if (deleteError) throw new Error('User cannot be deleted');
 }
 
-// insert user
+// insert new user
 export async function insertUser(newUser) {
   const { photoUrl, ...userData } = newUser;
   const photoUpload = await uploadPhoto(photoUrl);
@@ -41,7 +41,29 @@ export async function insertUser(newUser) {
   return data;
 }
 
-// update user
+// update existing user
+export async function updateUser(updatedUser) {
+  const { id, photoUrl, ...userData } = updatedUser;
+
+  let photo;
+  if (photoUrl?.startsWith?.(supabaseUrl)) {
+    photo = photoUrl;
+  } else {
+    photo = await uploadPhoto(photoUrl);
+  }
+  console.log(photo);
+
+  const { data: updateUser, error: updateError } = await supabase
+    .from('users')
+    .update({ ...userData, photoUrl: photo })
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (updateError) throw new Error('User cannot be updated');
+
+  return updateUser;
+}
 
 // upload to storage
 async function uploadPhoto(photo) {

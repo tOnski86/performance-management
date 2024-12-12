@@ -1,4 +1,5 @@
 import { useInsertUser } from './useInsertUser';
+import { useUpdateUser } from './useUpdateUser';
 import { useForm } from 'react-hook-form';
 import { HiOutlinePlusCircle, HiOutlineXCircle } from 'react-icons/hi2';
 
@@ -12,23 +13,28 @@ import InputFile from '../../ui/InputFile';
 import Spinner from '../../ui/Spinner';
 
 function UserForm({ editUser = {} }) {
-  const { id: updateId, ...updateValues } = editUser;
-  const isUpdatingUser = Boolean(updateId);
-
+  // useMutation isPending and mutate functions
   const { isInsertingUser, insertUser } = useInsertUser();
+  const { isUpdatingUser, updateUser } = useUpdateUser();
 
+  const { id: updateId, ...updateValues } = editUser;
+  const isUpdating = Boolean(updateId);
+
+  // if existing user, update form fields, if new user = {}
   const { register, handleSubmit, formState, reset } = useForm({
-    defaultValues: isUpdatingUser ? updateValues : {},
+    defaultValues: isUpdating ? updateValues : {},
   });
   const { errors } = formState;
 
-  console.log(editUser);
-
-  if (isInsertingUser) return <Spinner />;
+  if (isInsertingUser || isUpdatingUser) return <Spinner />;
 
   function onSubmit(data) {
-    insertUser({ ...data, photoUrl: data.photoUrl[0] });
-    // console.log(data);
+    const photo =
+      typeof data.photoUrl === 'string' ? data.photoUrl : data.photoUrl[0];
+
+    isUpdating
+      ? updateUser({ ...data, photoUrl: photo, id: updateId })
+      : insertUser({ ...data, photoUrl: photo });
     reset();
   }
 
@@ -38,7 +44,9 @@ function UserForm({ editUser = {} }) {
         <InputFile
           id='photoUrl'
           accept='image/*'
-          {...register('photoUrl', { required: 'This file is required' })}
+          {...register('photoUrl', {
+            required: isUpdating ? false : 'This file is required',
+          })}
         />
       </InputRow>
 
@@ -67,14 +75,6 @@ function UserForm({ editUser = {} }) {
           {...register('emailAddress', { required: 'This field is required' })}
         />
       </InputRow>
-
-      {/* <InputRow label='Role' error={errors?.role?.message}>
-        <Input
-          type='text'
-          id='role'
-          {...register('role', { required: 'This field is required' })}
-        />
-      </InputRow> */}
 
       <InputGroup columns='2'>
         <InputRow label='Start Date' error={errors?.startDate?.message}>
@@ -106,7 +106,7 @@ function UserForm({ editUser = {} }) {
         </Button>
         <Button type='primary'>
           <HiOutlinePlusCircle />
-          <span>Add User</span>
+          <span>{isUpdating ? 'Update' : 'Add'} User</span>
         </Button>
       </ButtonGroup>
     </Form>
