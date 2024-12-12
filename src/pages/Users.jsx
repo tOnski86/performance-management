@@ -1,15 +1,9 @@
-import { useState } from 'react';
-
 import UsersTable from '../features/users/UsersTable';
-import UserForm from '../features/users/UserForm';
 import UserModal from '../features/users/UserModal';
-
 import Heading from '../ui/Heading';
 import Row from '../ui/Row';
 
 function Users() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <>
       <Row type='horizontal'>
@@ -22,7 +16,6 @@ function Users() {
 
       <Row>
         <UsersTable />
-        {isOpen && <UserForm />}
       </Row>
     </>
   );

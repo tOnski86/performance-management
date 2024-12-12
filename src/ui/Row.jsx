@@ -21,6 +21,16 @@ const Row = styled.div`
   &:not(:last-child) {
     margin-bottom: 2rem;
   }
+
+  ${props =>
+    props.align === 'center' &&
+    css`
+      text-align: center;
+    `}
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
 `;
 
 Row.defaultProps = { type: 'vertical' };

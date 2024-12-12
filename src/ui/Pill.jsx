@@ -1,20 +1,26 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledPill = styled.span`
   padding: 0.8rem 1.2rem;
   font-size: 1.1rem;
   border-radius: 0.8rem;
-  background-color: ${props => props.$backgroundcolor};
-  color: ${props => props.$color};
   cursor: not-allowed;
+
+  ${props =>
+    props.$variant === 'active' &&
+    css`
+      background-color: var(--color-green-5);
+    `}
+
+  ${props =>
+    props.$variant === 'inactive' &&
+    css`
+      background-color: var(--color-magenta-3);
+    `}
 `;
 
-function Pill({ backgroundcolor, color, children }) {
-  return (
-    <StyledPill $backgroundcolor={backgroundcolor} $color={color}>
-      {children}
-    </StyledPill>
-  );
+function Pill({ variant, children }) {
+  return <StyledPill $variant={variant}>{children}</StyledPill>;
 }
 
 export default Pill;

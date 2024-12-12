@@ -11,6 +11,8 @@ import Button from '../../ui/Button';
 import ButtonGroup from '../../ui/ButtonGroup';
 import InputFile from '../../ui/InputFile';
 import Spinner from '../../ui/Spinner';
+import Row from '../../ui/Row';
+import Heading from '../../ui/Heading';
 
 function UserForm({ editUser = {}, onCloseModal }) {
   // useMutation isPending and mutate functions
@@ -26,7 +28,15 @@ function UserForm({ editUser = {}, onCloseModal }) {
   });
   const { errors } = formState;
 
-  if (isInsertingUser || isUpdatingUser) return <Spinner />;
+  if (isInsertingUser || isUpdatingUser)
+    return (
+      <Row align='center'>
+        <Heading as='h2'>
+          {isInsertingUser ? 'Adding' : 'Updating'} User
+        </Heading>
+        <Spinner />
+      </Row>
+    );
 
   function onSubmit(data) {
     const photo =
@@ -34,7 +44,15 @@ function UserForm({ editUser = {}, onCloseModal }) {
 
     isUpdating
       ? updateUser({ ...data, photoUrl: photo, id: updateId })
-      : insertUser({ ...data, photoUrl: photo });
+      : insertUser(
+          { ...data, photoUrl: photo },
+          {
+            onSuccess: () => {
+              reset();
+              onCloseModal();
+            },
+          }
+        );
     reset();
   }
 

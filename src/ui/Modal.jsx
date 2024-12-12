@@ -8,7 +8,7 @@ const StyledModal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60rem;
-  padding: 4rem;
+  padding: 6rem;
   border-radius: 1rem;
   box-shadow: var(--box-shadow-sm);
   background-color: var(--color-grey-light-1);
@@ -37,13 +37,12 @@ const Button = styled.button`
   justify-content: center;
   border-radius: 50rem;
   padding: 0.6rem;
-  background-color: var(--color-magenta-2);
-  color: var(--color-grey-light-1);
+  background: none;
   cursor: pointer;
   transition: all 0.2s;
 
   &:hover {
-    background-color: var(--color-magenta-1);
+    background-color: var(--color-magenta-2);
     color: var(--color-grey-light-1);
   }
 
@@ -87,7 +86,6 @@ function Window({ children, windowName }) {
         </Button>
         <div>{cloneElement(children, { onCloseModal: closeModal })}</div>
       </StyledModal>
-      ;
     </Overlay>
   );
 }

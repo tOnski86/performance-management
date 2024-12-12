@@ -40,19 +40,9 @@ function UsersRow({ user }) {
         <div>{!endDate ? '—' : formatDate(endDate)}</div>
         <div>
           {!endDate ? (
-            <Pill
-              backgroundcolor='var(--color-green-5)'
-              color='var(--color-black)'
-            >
-              Active
-            </Pill>
+            <Pill variant='active'>Active</Pill>
           ) : (
-            <Pill
-              backgroundcolor='var(--color-magenta-3)'
-              color='var(--color-black)'
-            >
-              Inactive
-            </Pill>
+            <Pill variant='inactive'>Inactive</Pill>
           )}
         </div>
         <ButtonGroup>
