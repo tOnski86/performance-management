@@ -11,10 +11,18 @@ import ButtonGroup from '../../ui/ButtonGroup';
 import InputFile from '../../ui/InputFile';
 import Spinner from '../../ui/Spinner';
 
-function UserForm() {
+function UserForm({ editUser = {} }) {
+  const { id: updateId, ...updateValues } = editUser;
+  const isUpdatingUser = Boolean(updateId);
+
   const { isInsertingUser, insertUser } = useInsertUser();
-  const { register, handleSubmit, formState, reset } = useForm();
+
+  const { register, handleSubmit, formState, reset } = useForm({
+    defaultValues: isUpdatingUser ? updateValues : {},
+  });
   const { errors } = formState;
+
+  console.log(editUser);
 
   if (isInsertingUser) return <Spinner />;
 
