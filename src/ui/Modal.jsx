@@ -1,4 +1,5 @@
 import { useState, createContext, useContext, cloneElement } from 'react';
+import { HiXMark } from 'react-icons/hi2';
 import styled from 'styled-components';
 
 const StyledModal = styled.div`
@@ -24,6 +25,32 @@ const Overlay = styled.div`
   backdrop-filter: blur(0.1rem);
   z-index: 9999;
   transition: all 0.2s;
+`;
+
+const Button = styled.button`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50rem;
+  padding: 0.6rem;
+  background-color: var(--color-magenta-2);
+  color: var(--color-grey-light-1);
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: var(--color-magenta-1);
+    color: var(--color-grey-light-1);
+  }
+
+  & svg {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
 `;
 
 const ModalContext = createContext();
@@ -54,7 +81,13 @@ function Window({ children, windowName }) {
 
   return (
     <Overlay>
-      <StyledModal>{children}</StyledModal>;
+      <StyledModal>
+        <Button onClick={closeModal}>
+          <HiXMark />
+        </Button>
+        {children}
+      </StyledModal>
+      ;
     </Overlay>
   );
 }

@@ -1,4 +1,3 @@
-import { HiOutlineUserPlus } from 'react-icons/hi2';
 import { useState } from 'react';
 
 import UsersTable from '../features/users/UsersTable';
