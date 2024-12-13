@@ -22,3 +22,7 @@ export function formatDate(date) {
   const formattedDate = `${day} ${months[month]} ${year}`;
   return formattedDate;
 }
+
+export function capitalize(str) {
+  return `${str[0].toUpperCase()}${str.slice(1)}`;
+}

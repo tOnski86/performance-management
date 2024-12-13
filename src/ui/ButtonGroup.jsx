@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const ButtonGroup = styled.div`
   display: flex;
@@ -7,6 +7,12 @@ const ButtonGroup = styled.div`
   & > :not(:last-child) {
     margin-right: 0.8rem;
   }
+
+  ${props =>
+    props.$alignment === 'right' &&
+    css`
+      justify-content: flex-end;
+    `}
 `;
 
 export default ButtonGroup;

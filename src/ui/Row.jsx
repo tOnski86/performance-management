@@ -23,7 +23,7 @@ const Row = styled.div`
   }
 
   ${props =>
-    props.align === 'center' &&
+    props.$align === 'center' &&
     css`
       text-align: center;
     `}

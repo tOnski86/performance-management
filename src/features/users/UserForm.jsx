@@ -30,7 +30,7 @@ function UserForm({ editUser = {}, onCloseModal }) {
 
   if (isInsertingUser || isUpdatingUser)
     return (
-      <Row align='center'>
+      <Row $align='center'>
         <Heading as='h2'>
           {isInsertingUser ? 'Adding' : 'Updating'} User
         </Heading>
@@ -125,7 +125,7 @@ function UserForm({ editUser = {}, onCloseModal }) {
         </InputRow>
       </InputGroup>
 
-      <ButtonGroup>
+      <ButtonGroup $alignment='right'>
         <Button type='secondary' onClick={() => onCloseModal()}>
           <HiOutlineXCircle />
           <span>Cancel</span>

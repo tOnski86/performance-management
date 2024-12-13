@@ -14,6 +14,7 @@ import ButtonGroup from '../../ui/ButtonGroup';
 import Image from '../../ui/Image';
 import UserForm from './UserForm';
 import Modal from '../../ui/Modal';
+import ModalConfirm from '../../ui/ModalConfirm';
 
 function UsersRow({ user }) {
   const { isDeletingUser, deleteUser } = useDeleteUser();
@@ -61,11 +62,21 @@ function UsersRow({ user }) {
             <Modal.Window windowName='edit-user'>
               <UserForm editUser={user} />
             </Modal.Window>
-          </Modal>
 
-          <ButtonIcon onClick={() => deleteUser(id)} disabled={isDeletingUser}>
-            <HiOutlineTrash />
-          </ButtonIcon>
+            <Modal.Control controlName='delete-user'>
+              <ButtonIcon>
+                <HiOutlineTrash />
+              </ButtonIcon>
+            </Modal.Control>
+            <Modal.Window windowName='delete-user'>
+              <ModalConfirm
+                operation='delete'
+                resource='user'
+                onConfirm={() => deleteUser(id)}
+                disabled={isDeletingUser}
+              />
+            </Modal.Window>
+          </Modal>
         </ButtonGroup>
       </Table.Row>
     </>

@@ -51,7 +51,6 @@ export async function updateUser(updatedUser) {
   } else {
     photo = await uploadPhoto(photoUrl);
   }
-  console.log(photo);
 
   const { data: updateUser, error: updateError } = await supabase
     .from('users')
