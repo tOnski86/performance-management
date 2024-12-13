@@ -33,6 +33,17 @@ const Button = styled.button`
       }
     `}
 
+    ${props =>
+    props.type === 'neutral' &&
+    css`
+      background-color: var(--color-grey-light-4);
+      color: var(--color-white);
+
+      &:hover {
+        background-color: var(--color-grey-light-5);
+      }
+    `}
+
   & svg {
     width: 1.6rem;
     height: 1.6rem;

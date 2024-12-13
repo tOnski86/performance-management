@@ -18,6 +18,8 @@ const GlobalStyles = createGlobalStyle`
   --color-grey-light-1: #f9fafb;
   --color-grey-light-2: #f2f2f2;
   --color-grey-light-3: #dadada;
+  --color-grey-light-4: #afafaf;
+  --color-grey-light-5: #a8a8a8;
 
   --box-shadow-sm: 0 1rem 3rem rgba(0, 0, 0, 0.1);
 

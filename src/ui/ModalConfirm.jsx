@@ -1,6 +1,25 @@
+import { HiOutlineCheckCircle, HiOutlineXCircle } from 'react-icons/hi2';
 import { capitalize } from '../utilitiles/helpers';
+
 import Button from './Button';
 import Heading from './Heading';
+import styled from 'styled-components';
+
+const StyledModalConfirm = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  & p {
+    margin-bottom: 1rem;
+  }
+
+  & div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+  }
+`;
 
 function ModalConfirm({
   resource,
@@ -10,7 +29,7 @@ function ModalConfirm({
   onCloseModal,
 }) {
   return (
-    <div>
+    <StyledModalConfirm>
       <Heading as='h2'>{`${capitalize(operation)} ${capitalize(
         resource
       )}`}</Heading>
@@ -19,12 +38,16 @@ function ModalConfirm({
       </p>
 
       <div>
-        <Button onClick={onCloseModal}>Cancel</Button>
-        <Button onClick={onConfirm} disabled={disabled}>
-          {capitalize(operation)}
+        <Button onClick={onCloseModal} type='neutral'>
+          <HiOutlineXCircle />
+          <span>Cancel</span>
+        </Button>
+        <Button onClick={onConfirm} disabled={disabled} type='secondary'>
+          <HiOutlineCheckCircle />
+          <span>{capitalize(operation)}</span>
         </Button>
       </div>
-    </div>
+    </StyledModalConfirm>
   );
 }
 
