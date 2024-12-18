@@ -9,7 +9,15 @@ import {
 
 const NavList = styled.ul`
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+
+  & > * {
+    flex: 1;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -17,11 +25,16 @@ const StyledNavLink = styled(NavLink)`
   &:visited {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     font-size: 1.6rem;
     font-weight: 400;
     padding: 1.2rem 3rem;
     transition: all 0.2s;
+
+    @media (min-width: 1024px) {
+      justify-content: flex-start;
+    }
   }
 
   &:hover {

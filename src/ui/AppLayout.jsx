@@ -6,9 +6,13 @@ import Sidebar from './Sidebar';
 
 const StyledAppLayout = styled.div`
   display: grid;
-  grid-template-columns: 25rem 1fr;
-  grid-template-rows: auto 1fr;
   height: 100vh;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 25rem 1fr;
+    grid-template-rows: auto 1fr;
+  }
 `;
 
 const Main = styled.main`

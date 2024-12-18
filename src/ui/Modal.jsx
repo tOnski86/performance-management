@@ -7,12 +7,16 @@ const StyledModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60rem;
+  width: 100%;
   padding: 4rem;
   border-radius: 1rem;
   box-shadow: var(--box-shadow-sm);
   background-color: var(--color-grey-light-1);
   transition: all 0.2s;
+
+  @media (min-width: 760px) {
+    width: 60rem;
+  }
 `;
 
 const Overlay = styled.div`
