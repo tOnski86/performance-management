@@ -1,5 +1,7 @@
+import ComingSoon from './ComingSoon';
+
 function Targets() {
-  return <div>Targets</div>;
+  return <ComingSoon />;
 }
 
 export default Targets;

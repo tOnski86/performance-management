@@ -30,9 +30,9 @@ function ModalConfirm({
 }) {
   return (
     <StyledModalConfirm>
-      <Heading as='h2'>{`${capitalize(operation)} ${capitalize(
-        resource
-      )}`}</Heading>
+      <Heading as='h2'>
+        {`${capitalize(operation)} ${capitalize(resource)}`}
+      </Heading>
       <p>
         Are you sure you want to {operation} this {resource}?
       </p>

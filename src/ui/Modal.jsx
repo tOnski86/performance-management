@@ -8,7 +8,7 @@ const StyledModal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 60rem;
-  padding: 6rem;
+  padding: 4rem;
   border-radius: 1rem;
   box-shadow: var(--box-shadow-sm);
   background-color: var(--color-grey-light-1);

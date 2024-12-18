@@ -36,11 +36,11 @@ const Button = styled.button`
     ${props =>
     props.type === 'neutral' &&
     css`
-      background-color: var(--color-grey-light-4);
+      background-color: var(--color-grey-dark-1);
       color: var(--color-white);
 
       &:hover {
-        background-color: var(--color-grey-light-5);
+        background-color: var(--color-grey-dark-2);
       }
     `}
 

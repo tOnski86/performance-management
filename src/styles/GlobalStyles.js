@@ -21,6 +21,9 @@ const GlobalStyles = createGlobalStyle`
   --color-grey-light-4: #afafaf;
   --color-grey-light-5: #a8a8a8;
 
+  --color-grey-dark-1: #444444;;
+  --color-grey-dark-2: #333333;;
+
   --box-shadow-sm: 0 1rem 3rem rgba(0, 0, 0, 0.1);
 
   --color-backdrop: rgba(0, 0, 0, 0.3);

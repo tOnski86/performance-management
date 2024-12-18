@@ -10,7 +10,6 @@ function Users() {
         <Heading as='h2'>Manage Users</Heading>
         <Row type='horizontal'>
           <UserModal />
-          <p>filter / sort</p>
         </Row>
       </Row>
 

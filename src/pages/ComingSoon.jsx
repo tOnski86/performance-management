@@ -9,12 +9,12 @@ const Row = styled.div`
   }
 `;
 
-function PageNotFound() {
+function ComingSoon() {
   const back = useBack();
 
   return (
     <Row>
-      <p>The page you are looking for cannot be found.</p>
+      <p>This feature is coming soon!</p>
       <Button type='primary' onClick={back}>
         &larr; Go back
       </Button>
@@ -22,4 +22,4 @@ function PageNotFound() {
   );
 }
 
-export default PageNotFound;
+export default ComingSoon;

@@ -7,11 +7,11 @@ const InputFile = styled.input.attrs({ type: 'file' })`
     border: none;
     border-radius: 50rem;
     cursor: pointer;
-    background-color: var(--color-green-4);
+    background-color: var(--color-grey-dark-1);
     color: var(--color-white);
 
     &:hover {
-      background-color: var(--color-green-3);
+      background-color: var(--color-grey-dark-2);
     }
   }
 `;

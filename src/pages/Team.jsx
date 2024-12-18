@@ -1,5 +1,7 @@
+import ComingSoon from './ComingSoon';
+
 function Team() {
-  return <div>Team</div>;
+  return <ComingSoon />;
 }
 
 export default Team;
