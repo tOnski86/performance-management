@@ -27,12 +27,12 @@ const StyledNavLink = styled(NavLink)`
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    font-size: 1.6rem;
     font-weight: 400;
     padding: 1.2rem 3rem;
     transition: all 0.2s;
 
     @media (min-width: 1024px) {
+      font-size: 1.6rem;
       justify-content: flex-start;
     }
   }
