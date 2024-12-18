@@ -45,14 +45,6 @@ function UsersRow({ user }) {
           )}
         </div>
         <ButtonGroup>
-          <ButtonIcon>
-            <HiOutlineEye />
-          </ButtonIcon>
-
-          <ButtonIcon>
-            <HiOutlineChatBubbleLeft />
-          </ButtonIcon>
-
           <Modal>
             <Modal.Control controlName='edit-user'>
               <ButtonIcon>
