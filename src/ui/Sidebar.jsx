@@ -12,6 +12,10 @@ const StyledSidebar = styled.aside`
   border-right: 0.1rem solid var(--color-grey-light-2);
   color: var(--color-white);
   background-color: var(--color-green-1);
+
+  @media (min-width: 1024px) {
+    min-height: 100vh;
+  }
 `;
 
 function Sidebar() {
