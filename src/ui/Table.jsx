@@ -10,12 +10,16 @@ const StyledTable = styled.div`
 const BaseRow = styled.div`
   display: grid;
   grid-template-columns: ${props => props.$columns};
-  column-gap: 2rem;
+  column-gap: 1rem;
 
   & > * {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+  }
+
+  @media (min-width: 1024px) {
+    column-gap: 2rem;
   }
 `;
 
